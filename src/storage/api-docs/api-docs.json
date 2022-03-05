@@ -89,7 +89,7 @@
                         }
                     },
                     "404": {
-                        "description": "專案不存在"
+                        "description": "貨幣不存在"
                     },
                     "500": {
                         "description": "伺服器錯誤",
@@ -110,12 +110,96 @@
                 }
             }
         },
-        "/": {
-            "get": {
-                "description": "Home page",
+        "/api/currencies/covert": {
+            "post": {
+                "tags": [
+                    "Currency 貨幣"
+                ],
+                "summary": "轉換貨幣",
+                "description": "轉換貨幣",
+                "operationId": "轉換貨幣",
+                "requestBody": {
+                    "description": "轉換貨幣",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "amount": {
+                                        "type": "double",
+                                        "example": 1.25
+                                    },
+                                    "from": {
+                                        "type": "string",
+                                        "example": "TWD"
+                                    },
+                                    "to": {
+                                        "type": "string",
+                                        "example": "JPY"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
-                    "default": {
-                        "description": "Welcome page"
+                    "200": {
+                        "description": "回傳兌換後的結果",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "source_amount": {
+                                            "type": "double",
+                                            "example": 1.25
+                                        },
+                                        "target_amount": {
+                                            "type": "double",
+                                            "example": 4.58625
+                                        },
+                                        "from": {
+                                            "type": "string",
+                                            "example": "TWD"
+                                        },
+                                        "to": {
+                                            "type": "string",
+                                            "example": "JPY"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "目標貨幣不存在"
+                    },
+                    "500": {
+                        "description": "伺服器錯誤",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "return_message": {
+                                            "type": "string",
+                                            "example": "Exception"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/health-check": {
+            "get": {
+                "description": "health check",
+                "responses": {
+                    "200": {
+                        "description": "success"
                     }
                 }
             }

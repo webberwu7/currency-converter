@@ -44,3 +44,45 @@
  *     ),
  * )
  */
+
+/**
+ * @OA\Post(
+ *     path="/api/currencies/covert",
+ *     operationId="轉換貨幣",
+ *     tags={"Currency 貨幣"},
+ *     summary="轉換貨幣",
+ *     description="轉換貨幣",
+ *     @OA\RequestBody(
+ *         required=true,
+ *         description="轉換貨幣",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="amount", type="double", example=1.25),
+ *             @OA\Property(property="from", type="string", example="TWD"),
+ *             @OA\Property(property="to", type="string", example="JPY"),
+ *         ),
+ *     ),
+ *     @OA\Response(
+ *         response=200,
+ *         description="回傳兌換後的結果",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="source_amount", type="double", example=1.25),
+ *             @OA\Property(property="target_amount", type="double", example=4.58625),
+ *             @OA\Property(property="from", type="string", example="TWD"),
+ *             @OA\Property(property="to", type="string", example="JPY"),
+ *         ),
+ *     ),
+ *     @OA\Response(
+ *         response=404,
+ *         description="目標貨幣不存在",
+ *     ),
+ *     @OA\Response(
+ *         response=500,
+ *         description="伺服器錯誤",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="return_message", type="string",
+ *                 example="Exception"
+ *             ),
+ *         ),
+ *     ),
+ * )
+ */
