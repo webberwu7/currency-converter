@@ -11,6 +11,105 @@
         }
     ],
     "paths": {
+        "/api/currencies": {
+            "get": {
+                "tags": [
+                    "Currency 貨幣"
+                ],
+                "summary": "取得貨幣完整資訊",
+                "description": "取得貨幣完整資訊",
+                "operationId": "取得貨幣完整資訊",
+                "responses": {
+                    "200": {
+                        "description": "取得貨幣完整資訊",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "currencies": {
+                                            "properties": {
+                                                "TWD": {
+                                                    "properties": {
+                                                        "TWD": {
+                                                            "type": "double",
+                                                            "example": 1
+                                                        },
+                                                        "JPY": {
+                                                            "type": "double",
+                                                            "example": 3.669
+                                                        },
+                                                        "USD": {
+                                                            "type": "double",
+                                                            "example": 0.03281
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "JPY": {
+                                                    "properties": {
+                                                        "TWD": {
+                                                            "type": "double",
+                                                            "example": 0.26956
+                                                        },
+                                                        "JPY": {
+                                                            "type": "double",
+                                                            "example": 1
+                                                        },
+                                                        "USD": {
+                                                            "type": "double",
+                                                            "example": 0.00885
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "USD": {
+                                                    "properties": {
+                                                        "TWD": {
+                                                            "type": "double",
+                                                            "example": 30.444
+                                                        },
+                                                        "JPY": {
+                                                            "type": "double",
+                                                            "example": 111.801
+                                                        },
+                                                        "USD": {
+                                                            "type": "double",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "專案不存在"
+                    },
+                    "500": {
+                        "description": "伺服器錯誤",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "return_message": {
+                                            "type": "string",
+                                            "example": "Exception"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/": {
             "get": {
                 "description": "Home page",
