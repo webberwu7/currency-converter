@@ -8,13 +8,13 @@ use Tests\TestCase;
 class ExampleTest extends TestCase
 {
     /**
-     * A basic test example.
+     * A basic feature test check system alive.
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testHealthCheck()
     {
-        $response = $this->get('/');
+        $response = $this->get('/health-check');
 
         $response->assertStatus(200);
     }
