@@ -9,3 +9,6 @@ simple currency converter use laravel
 
 ## document
 `{host}/api/documentation`
+
+## test
+`vendor/bin/phpunit`

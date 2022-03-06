@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 class Currency
 {
     protected $currencies;
+
     public function __construct()
     {
         $json = Storage::disk('local')->get('currencies.json');
