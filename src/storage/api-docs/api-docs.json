@@ -151,12 +151,12 @@
                                 "schema": {
                                     "properties": {
                                         "source_amount": {
-                                            "type": "double",
-                                            "example": 1.25
+                                            "type": "string",
+                                            "example": "1.25"
                                         },
                                         "target_amount": {
-                                            "type": "double",
-                                            "example": 4.58625
+                                            "type": "string",
+                                            "example": "4.58625"
                                         },
                                         "from": {
                                             "type": "string",

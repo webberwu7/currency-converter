@@ -65,8 +65,8 @@
  *         response=200,
  *         description="回傳兌換後的結果",
  *         @OA\JsonContent(
- *             @OA\Property(property="source_amount", type="double", example=1.25),
- *             @OA\Property(property="target_amount", type="double", example=4.58625),
+ *             @OA\Property(property="source_amount", type="string", example="1.25"),
+ *             @OA\Property(property="target_amount", type="string", example="4.58625"),
  *             @OA\Property(property="from", type="string", example="TWD"),
  *             @OA\Property(property="to", type="string", example="JPY"),
  *         ),
