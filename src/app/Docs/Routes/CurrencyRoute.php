@@ -46,19 +46,37 @@
  */
 
 /**
- * @OA\Post(
+ * @OA\Get(
  *     path="/api/currencies/covert",
  *     operationId="轉換貨幣",
  *     tags={"Currency 貨幣"},
  *     summary="轉換貨幣",
  *     description="轉換貨幣",
- *     @OA\RequestBody(
+ *     @OA\Parameter(
+ *         name="from",
+ *         in="query",
+ *         description="原始貨幣",
  *         required=true,
- *         description="轉換貨幣",
- *         @OA\JsonContent(
- *             @OA\Property(property="amount", type="double", example=1.25),
- *             @OA\Property(property="from", type="string", example="TWD"),
- *             @OA\Property(property="to", type="string", example="JPY"),
+ *         @OA\Schema(
+ *             type="string",
+ *         ),
+ *     ),
+ *     @OA\Parameter(
+ *         name="to",
+ *         in="query",
+ *         description="兌換貨幣",
+ *         required=true,
+ *         @OA\Schema(
+ *             type="string",
+ *         ),
+ *     ),
+ *     @OA\Parameter(
+ *         name="amount",
+ *         in="query",
+ *         description="原始貨幣數量, 最大上限1,000,000,000,000,000, 最小 0.01",
+ *         required=true,
+ *         @OA\Schema(
+ *             type="double",
  *         ),
  *     ),
  *     @OA\Response(

@@ -14,4 +14,4 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/currencies', 'API\CurrencyController@getCurrencies')->name('getCurrencies');
-Route::post('/currencies/convert', 'API\CurrencyController@convert')->name('covert');
+Route::get('/currencies/convert', 'API\CurrencyController@convert')->name('covert');

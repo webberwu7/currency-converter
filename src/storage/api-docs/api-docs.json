@@ -111,38 +111,42 @@
             }
         },
         "/api/currencies/covert": {
-            "post": {
+            "get": {
                 "tags": [
                     "Currency 貨幣"
                 ],
                 "summary": "轉換貨幣",
                 "description": "轉換貨幣",
                 "operationId": "轉換貨幣",
-                "requestBody": {
-                    "description": "轉換貨幣",
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "amount": {
-                                        "type": "double",
-                                        "example": 1.25
-                                    },
-                                    "from": {
-                                        "type": "string",
-                                        "example": "TWD"
-                                    },
-                                    "to": {
-                                        "type": "string",
-                                        "example": "JPY"
-                                    }
-                                },
-                                "type": "object"
-                            }
+                "parameters": [
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "description": "原始貨幣",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "description": "兌換貨幣",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "amount",
+                        "in": "query",
+                        "description": "原始貨幣數量, 最大上限1,000,000,000,000,000, 最小 0.01",
+                        "required": true,
+                        "schema": {
+                            "type": "double"
                         }
                     }
-                },
+                ],
                 "responses": {
                     "200": {
                         "description": "回傳兌換後的結果",

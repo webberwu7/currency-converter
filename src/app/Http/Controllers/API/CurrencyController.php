@@ -26,7 +26,7 @@ class CurrencyController extends Controller
     {
         // 須限制amount 範圍
         $validator = Validator::make($request->all(), [
-            'amount' => ['required', 'numeric'],
+            'amount' => ['required', 'numeric', 'lte:10000000000000000', 'gte:0.01'],
             'from' => ['required', 'string', 'in:TWD,JPY,USD'],
             'to' => ['required', 'string', 'in:TWD,JPY,USD'],
         ]);
