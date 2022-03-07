@@ -30,17 +30,8 @@
  *         ),
  *     ),
  *     @OA\Response(
- *         response=404,
- *         description="貨幣不存在",
- *     ),
- *     @OA\Response(
  *         response=500,
  *         description="伺服器錯誤",
- *         @OA\JsonContent(
- *             @OA\Property(property="return_message", type="string",
- *                 example="Exception"
- *             ),
- *         ),
  *     ),
  * )
  */
@@ -55,7 +46,8 @@
  *     @OA\Parameter(
  *         name="from",
  *         in="query",
- *         description="原始貨幣",
+ *         example="USD",
+ *         description="原始貨幣 允許輸入TWD,JPY,USD",
  *         required=true,
  *         @OA\Schema(
  *             type="string",
@@ -64,7 +56,8 @@
  *     @OA\Parameter(
  *         name="to",
  *         in="query",
- *         description="兌換貨幣",
+ *         example="TWD",
+ *         description="兌換貨幣 允許輸入TWD,JPY,USD",
  *         required=true,
  *         @OA\Schema(
  *             type="string",
@@ -73,6 +66,7 @@
  *     @OA\Parameter(
  *         name="amount",
  *         in="query",
+ *         example=1000,
  *         description="原始貨幣數量, 最大上限1,000,000,000,000,000, 最小 0.01",
  *         required=true,
  *         @OA\Schema(
@@ -90,17 +84,15 @@
  *         ),
  *     ),
  *     @OA\Response(
- *         response=404,
- *         description="目標貨幣不存在",
+ *         response=400,
+ *         description="輸入錯誤",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="return_message", type="string", example="The selected from is invalid."),
+ *         ),
  *     ),
  *     @OA\Response(
  *         response=500,
  *         description="伺服器錯誤",
- *         @OA\JsonContent(
- *             @OA\Property(property="return_message", type="string",
- *                 example="Exception"
- *             ),
- *         ),
  *     ),
  * )
  */

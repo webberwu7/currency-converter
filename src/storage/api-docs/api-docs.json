@@ -88,24 +88,8 @@
                             }
                         }
                     },
-                    "404": {
-                        "description": "貨幣不存在"
-                    },
                     "500": {
-                        "description": "伺服器錯誤",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "return_message": {
-                                            "type": "string",
-                                            "example": "Exception"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "description": "伺服器錯誤"
                     }
                 }
             }
@@ -122,20 +106,22 @@
                     {
                         "name": "from",
                         "in": "query",
-                        "description": "原始貨幣",
+                        "description": "原始貨幣 允許輸入TWD,JPY,USD",
                         "required": true,
                         "schema": {
                             "type": "string"
-                        }
+                        },
+                        "example": "USD"
                     },
                     {
                         "name": "to",
                         "in": "query",
-                        "description": "兌換貨幣",
+                        "description": "兌換貨幣 允許輸入TWD,JPY,USD",
                         "required": true,
                         "schema": {
                             "type": "string"
-                        }
+                        },
+                        "example": "TWD"
                     },
                     {
                         "name": "amount",
@@ -144,7 +130,8 @@
                         "required": true,
                         "schema": {
                             "type": "double"
-                        }
+                        },
+                        "example": 1000
                     }
                 ],
                 "responses": {
@@ -176,24 +163,24 @@
                             }
                         }
                     },
-                    "404": {
-                        "description": "目標貨幣不存在"
-                    },
-                    "500": {
-                        "description": "伺服器錯誤",
+                    "400": {
+                        "description": "輸入錯誤",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
                                         "return_message": {
                                             "type": "string",
-                                            "example": "Exception"
+                                            "example": "The selected from is invalid."
                                         }
                                     },
                                     "type": "object"
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "description": "伺服器錯誤"
                     }
                 }
             }
